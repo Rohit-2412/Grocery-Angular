@@ -1,0 +1,20 @@
+<div class="box">
+  <div class="icons">
+    <a href="#" class="fal fa-shopping-cart"></a>
+  </div>
+  <div class="image">
+    <img src="{{ item.imageURL }}" alt="" />
+  </div>
+  <div class="content">
+    <h3>{{ item.name }}</h3>
+    <div class="price">₹{{ item.price }}</div>
+    <div class="stars">
+      <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+        <i
+          class="fas fa-star"
+          [ngClass]="{ 'fa-star-half-alt': item.rating < i + 1 }"
+        ></i>
+      </ng-container>
+    </div>
+  </div>
+</div>

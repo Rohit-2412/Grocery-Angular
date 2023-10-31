@@ -1,0 +1,16 @@
+<div class="heading">
+  <h1 class="green2">Snacks</h1>
+  <p>
+    <a href="home">home >></a>
+    <a href="shop">shop >> </a>Snacks
+  </p>
+</div>
+
+<section class="products">
+  <div class="items-container">
+    <app-product-item
+      *ngFor="let item of items"
+      [item]="item"
+    ></app-product-item>
+  </div>
+</section>

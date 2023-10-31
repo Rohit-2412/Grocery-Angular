@@ -1,0 +1,51 @@
+<div class="heading">
+  <h1>#eatFresh</h1>
+  <p class="primary">We focus on what you need</p>
+  <p class="secondary">Kitchen needs solved</p>
+</div>
+
+<section class="categories category">
+  <h1 class="title">our <span>categories</span></h1>
+
+  <div class="box-container">
+    <a href="fruits" class="box">
+      <img src="../../assets/category/cat (1).png" alt="" />
+      <h3>fresh fruits</h3>
+    </a>
+
+    <a href="vegetables" class="box">
+      <img src="../../assets/category/cat (2).png" alt="" />
+      <h3>fresh vegetables</h3>
+    </a>
+
+    <a href="beverages" class="box">
+      <img src="../../assets/category/cat (3).png" alt="" />
+      <h3>cold drinks & juices</h3>
+    </a>
+
+    <a href="chocolate" class="box">
+      <img src="../../assets/category/cat (4).png" alt="" />
+      <h3>sweet tooth</h3>
+    </a>
+
+    <a href="snacks" class="box">
+      <img src="../../assets/category/cat (6).png" alt="" />
+      <h3>munchies</h3>
+    </a>
+  </div>
+</section>
+
+<section class="products">
+  <h1 class="title">
+    top <span>rated products</span><a href="#">view all >></a>
+  </h1>
+
+  <div class="items-container top-rated-container">
+    <div class="items-container">
+      <app-product-item
+        *ngFor="let item of topRatedProducts"
+        [item]="item"
+      ></app-product-item>
+    </div>
+  </div>
+</section>
