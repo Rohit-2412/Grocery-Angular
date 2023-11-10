@@ -105,6 +105,10 @@ section {
   text-transform: none !important;
 }
 
+a {
+  cursor: pointer;
+}
+
 .heading {
   background: url(../src/assets/heading-bg.jpg) no-repeat;
   background-size: cover;
@@ -643,7 +647,7 @@ section {
 
         img {
           height: 75%;
-          // width: 100%;
+          width: 100%;
           animation: fadeUp 0.4s linear;
 
           // for small devices make the size smaller

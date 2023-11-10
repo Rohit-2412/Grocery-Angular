@@ -1,35 +1,59 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
 })
-export class CarouselComponent {
-  constructor() {
-    setInterval(() => {
-      this.next();
+export class CarouselComponent implements OnInit {
+  // an array of slides
+  slides = [
+    {
+      contentText: 'Only the fresh',
+      discount: 'upto 50% off',
+      secondaryText: 'Save more with us',
+      imagePath: '../../assets/home-img-1.png',
+    },
+    {
+      contentText: 'Handpicked from farm',
+      discount: 'upto 25% off',
+      secondaryText: 'Eat the best',
+      imagePath: '../../assets/home-img-2.png',
+    },
+    {
+      contentText: '2 Stage quality checks',
+      discount: 'upto 30% off',
+      secondaryText: 'Feed your family the best',
+      imagePath: '../../assets/home-img-3.png',
+    },
+  ];
+
+  currentSlideIndex = 0;
+  intervalId: any;
+
+  ngOnInit(): void {
+    // Start automatic slide toggling
+    this.intervalId = setInterval(() => {
+      this.toggleSlide();
     }, 5000);
   }
 
-  // Initialize the active slide index
-  activeSlideIndex: number = 0;
-
-  // Array to hold the slide data (you can define your own data structure)
-  slides = [
-    { title: 'Slide 1', image: '../../assets/home-img-1.png' },
-    { title: 'Slide 2', image: '../../assets/home-img-2.png' },
-    { title: 'Slide 3', image: '../../assets/home-img-3.png' },
-  ];
-
-  // Function to go to the next slide
-  next() {
-    this.activeSlideIndex = (this.activeSlideIndex + 1) % this.slides.length;
+  ngOnDestroy(): void {
+    clearInterval(this.intervalId);
   }
 
-  // Function to go to the previous slide
+  toggleSlide() {
+    this.currentSlideIndex = (this.currentSlideIndex + 1) % this.slides.length;
+  }
+
+  // Move to the next slide
+  next() {
+    this.currentSlideIndex = (this.currentSlideIndex + 1) % this.slides.length;
+  }
+
+  // Move to the previous slide
   prev() {
-    this.activeSlideIndex =
-      (this.activeSlideIndex - 1 + this.slides.length) % this.slides.length;
+    this.currentSlideIndex =
+      (this.currentSlideIndex - 1 + this.slides.length) % this.slides.length;
   }
 }
